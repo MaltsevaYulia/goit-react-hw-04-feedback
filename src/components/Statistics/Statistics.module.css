@@ -1,0 +1,16 @@
+.stat_text {
+    color: white;
+    font-weight: 900;
+}
+
+.statistic {
+    width: 300px;
+    padding: 20px;
+    background: #1da1f2;
+    border-radius: 20px;
+    box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+  transition: 0.5s;
+}
+.statistic:hover {
+    box-shadow: none;
+}

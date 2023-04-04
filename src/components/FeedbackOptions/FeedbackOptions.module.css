@@ -1,0 +1,23 @@
+.feedback_btn {
+    display: inline-block;
+  width: 100px;
+  color: white;
+  margin-top: 20px;
+  background: #1da1f2;
+  /* height: 40px; */
+  padding: 5px;
+  border-radius: 20px;
+  cursor: pointer;
+  font-weight: 900;
+  box-shadow: 6px 6px 6px #cbced1, -6px -6px 6px white;
+  transition: 0.5s;
+  text-transform: capitalize ;
+}
+
+.feedback_btn:hover {
+  box-shadow: none;
+}
+
+.feedback_btn:not(:last-child) {
+margin-right: 10px;
+}
