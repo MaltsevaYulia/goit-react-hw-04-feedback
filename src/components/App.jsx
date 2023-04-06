@@ -1,9 +1,8 @@
-import React, { Component, useState, useMemo } from 'react';
+import React, {useState, useMemo } from 'react';
 import { SectionTitle } from './SectionTitle/SectionTitle';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Statistics } from './Statistics/Statistics';
 import { Notification } from './Notification/Notification';
-// import { useEffect } from 'react';
 
 export  function App() {
   const [good, setGood] = useState(0);
@@ -33,7 +32,6 @@ export  function App() {
     }
   };
 
-  // useEffect(()=>{},[])
 
   const total = useMemo(() => {
     return good + neutral + bad;
@@ -55,7 +53,7 @@ export  function App() {
         />
       </SectionTitle>
       <SectionTitle title="Statistics">
-        {Object.values(feedbacks).every(el => el === 0) ? (
+        {!total ? (
           <Notification message="There is no feedback" />
         ) : (
           <Statistics

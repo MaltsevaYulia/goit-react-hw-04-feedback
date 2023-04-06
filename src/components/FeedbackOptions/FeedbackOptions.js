@@ -10,7 +10,7 @@ export const FeedbackOptions = ({ onLeaveFeedback, options }) => {
             className={css.feedback_btn}
             key={el}
             type="button"
-            onClick={() => onLeaveFeedback(`${el}`)}
+            onClick={() => onLeaveFeedback(el)}
           >
             {el}
           </button>
@@ -22,5 +22,5 @@ export const FeedbackOptions = ({ onLeaveFeedback, options }) => {
 
 FeedbackOptions.protoType = {
   onLeaveFeedback: PropTypes.func.isRequired,
-  options: PropTypes.objectOf(PropTypes.string.isRequired).isRequired,
+  options: PropTypes.arrayOf(PropTypes.string.isRequired).isRequired,
 };
