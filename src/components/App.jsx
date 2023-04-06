@@ -8,7 +8,7 @@ export  function App() {
   const [good, setGood] = useState(0);
   const [neutral, setNeutral] = useState(0);
   const [bad, setBad] = useState(0);
-  
+
   const feedbacks = {
     good,
     neutral,
@@ -32,17 +32,18 @@ export  function App() {
     }
   };
 
-
   const total = useMemo(() => {
     return good + neutral + bad;
   }, [bad, good, neutral]);
 
-
-  
   const positivePercentage = useMemo(() => {
-      return Math.round((good * 100) / total);
-    },[good, total])
-  
+    return Math.round((good * 100) / total);
+  }, [good, total]);
+  //Без використання useMemo
+  // const totalFeedback = Object.values(feedbacks).reduce((acc, el) => acc + el, 0);
+  // const positive = Math.round((good * 100) / totalFeedback);
+  // console.log("🚀 ~ App ~ positive:", positive)
+  // console.log('🚀 ~ App ~ totall:', totalFeedback);
 
   return (
     <div>
