@@ -1,4 +1,4 @@
-import React, {useState, useMemo } from 'react';
+import React, {useState } from 'react';
 import { SectionTitle } from './SectionTitle/SectionTitle';
 import { FeedbackOptions } from './FeedbackOptions/FeedbackOptions';
 import { Statistics } from './Statistics/Statistics';
@@ -32,18 +32,17 @@ export  function App() {
     }
   };
 
-  const total = useMemo(() => {
-    return good + neutral + bad;
-  }, [bad, good, neutral]);
+  // const total = useMemo(() => {
+  //   return good + neutral + bad;
+  // }, [bad, good, neutral]);
 
-  const positivePercentage = useMemo(() => {
-    return Math.round((good * 100) / total);
-  }, [good, total]);
+  // const positivePercentage = useMemo(() => {
+  //   return Math.round((good * 100) / total);
+  // }, [good, total]);
   //Без використання useMemo
-  // const totalFeedback = Object.values(feedbacks).reduce((acc, el) => acc + el, 0);
-  // const positive = Math.round((good * 100) / totalFeedback);
-  // console.log("🚀 ~ App ~ positive:", positive)
-  // console.log('🚀 ~ App ~ totall:', totalFeedback);
+  const totalFeedback = Object.values(feedbacks).reduce((acc, el) => acc + el, 0);
+  const positive = Math.round((good * 100) / totalFeedback);
+  
 
   return (
     <div>
@@ -54,15 +53,15 @@ export  function App() {
         />
       </SectionTitle>
       <SectionTitle title="Statistics">
-        {!total ? (
+        {!totalFeedback ? (
           <Notification message="There is no feedback" />
         ) : (
           <Statistics
             good={good}
             neutral={neutral}
             bad={bad}
-            total={total}
-            positivePercentage={positivePercentage}
+            total={totalFeedback}
+            positivePercentage={positive}
           />
         )}
       </SectionTitle>
